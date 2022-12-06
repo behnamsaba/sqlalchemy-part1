@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{%block title%}{{user.first_name}}{%endblock%}
+{%block content%}
+    <img src="{{user.image_url}}" alt="user avatar" height="100px" width="100px">
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <button onclick="window.location.href='/users/{{user.id}}/delete';">Delete</button>
+    <button onclick="window.location.href='/users/{{user.id}}/edit';">Edit</button>
+
+{%endblock%}
