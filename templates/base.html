@@ -17,10 +17,21 @@
 
     {% block content %} {%endblock%}
 
+    {%with messages= get_flashed_messages(with_categories=true) %}
+    {%if messages%}
+    <ul class="messages">
+        {%for category,msg in messages%}
+            <li>{{msg}}</li>
+        {%endfor%}
+        
+    </ul>
+    {% endif %}
+    {% endwith %}
 
-    <footer>
+
+    <!-- <footer>
         about
-    </footer>
+    </footer> -->
     
 </body>
 </html>

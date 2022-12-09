@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{%block title%}post info{%endblock%}
+{%block content%}
+    <h1>{{post.title}}</h1>
+    <p>{{post.content}}</p>
+    <p>by<i> {{post.navigation.first_name}} {{post.navigation.last_name}}</i></p>
+    <button onclick="window.location.href='/posts/{{post.id}}/delete';">Delete</button>
+    <button onclick="window.location.href='/posts/{{post.id}}/edit';">Edit</button>
+
+{%endblock%}
