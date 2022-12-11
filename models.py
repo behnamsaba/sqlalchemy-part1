@@ -43,4 +43,29 @@ class Post(db.Model):
 
     navigation=db.relationship('User',backref='post')
 
+class Tag(db.Model):
+    __tablename__ = "tags"
+
+    id=db.Column(db.Integer,primary_key=True,autoincrement=True)
+    name=db.Column(db.Text,unique=True)
+
+    def __repr__(self):
+        """show tag info"""
+        t = self
+        return f'<tag id={t.id} name={t.name}>'
+
+    posts=db.relationship('Post',secondary='post_tags',backref='tags')
+
+class PostTag(db.Model):
+    __tablename__ = "post_tags"
+
+    post_id=db.Column(db.Integer,db.ForeignKey('posts.id'),primary_key=True)
+    tag_id=db.Column(db.Integer,db.ForeignKey('tags.id'),primary_key=True)
+
+    def __repr__(self):
+        """show post_tag info"""
+        i = self
+        return f'<postid post_id={i.post_id} tag_id={i.tag_id}>'
+
+
 

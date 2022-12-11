@@ -5,11 +5,7 @@
     <h1>{{user.first_name}} {{user.last_name}}</h1>
     <button onclick="window.location.href='/users/{{user.id}}/delete';">Delete</button>
     <button onclick="window.location.href='/users/{{user.id}}/edit';">Edit</button>
-    <!-- <ul>
-        {%for post in posts%}
-            <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
-        {%endfor%}
-    </ul> -->
+    
     <ul>
         {%for post in user.post%}
             <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>

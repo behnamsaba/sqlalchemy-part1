@@ -4,6 +4,13 @@
     <h1>{{post.title}}</h1>
     <p>{{post.content}}</p>
     <p>by<i> {{post.navigation.first_name}} {{post.navigation.last_name}}</i></p>
+    <p><b>Tags:</b></p>
+    <ul>
+        {%for tag in tags%}
+        <li>{{tag.name}}</li>
+        {%endfor%}
+    </ul>
+
     <button onclick="window.location.href='/posts/{{post.id}}/delete';">Delete</button>
     <button onclick="window.location.href='/posts/{{post.id}}/edit';">Edit</button>
 
